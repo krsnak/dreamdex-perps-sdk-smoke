@@ -1,0 +1,13 @@
+{
+  "name": "dreamdex-perps-sdk-smoke",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "smoke": "node src/smoke.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@somnia-chain/markets-sdk": "0.32.1"
+  }
+}
