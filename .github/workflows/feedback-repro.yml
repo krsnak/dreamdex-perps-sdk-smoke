@@ -1,0 +1,21 @@
+name: dreamDEX ADL feedback reproduction
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'repro/**'
+      - 'feedback/**'
+      - 'package.json'
+      - '.github/workflows/feedback-repro.yml'
+jobs:
+  adl-repro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Reproduce original published SDK ADL behavior
+        run: node --test repro/adl-ready.mjs
